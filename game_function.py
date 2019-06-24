@@ -31,6 +31,7 @@ def start_game(ai_settings, screen, aliens, bullets, ship, stats):
     # 清空外星人 和子弹
     aliens.empty()
     bullets.empty()
+    ai_settings.initialize_dynamic_settings()
 
     # 创建新的
     create_fleet(ai_settings, screen, aliens, ship)
@@ -88,6 +89,7 @@ def check_bullet_alien_collisions(ai_settings, screen, aliens, bullets, ship):
     # 判断是否还存在外星人，不存在就重新创建
     if len(aliens) == 0:
         bullets.empty()
+        ai_settings.increase_speedO()
         create_fleet(ai_settings, screen, aliens, ship)
 
 def fire_bullet(ai_settings, screen, ship, bullets):
