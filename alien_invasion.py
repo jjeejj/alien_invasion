@@ -8,6 +8,7 @@ from ship import Ship
 # from bullet import Bullet
 import game_function as gf
 from game_stats import GameStats
+from button import Button
 
 def run_ganme():
 
@@ -27,16 +28,20 @@ def run_ganme():
     # 创建外星人人群
     gf.create_fleet(ai_settings, screen, aliens, ship)
 
+    # 
+    play_button = Button(ai_settings, screen, 'Play')
+
     # 开始游戏
     while True:
         # 监听键盘和鼠标事件
-        gf.check_events(ai_settings, screen, ship, bullets)
+        gf.check_events(ai_settings, screen, ship, bullets, stats, play_button, aliens)
         if stats.game_active:
             ship.update()
             # 子弹
             gf.update_bullets(bullets, aliens, ai_settings, screen, ship)
             # 外星人
             gf.update_aliens(ai_settings, screen, aliens, bullets, ship, stats)
-            gf.update_screen(ai_settings, screen, ship, bullets, aliens)
+        gf.update_screen(ai_settings, screen, ship, bullets, aliens, stats, play_button)
+
 
 run_ganme()

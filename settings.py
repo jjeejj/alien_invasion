@@ -2,7 +2,7 @@
 class Settings():
     '''保存设置信息'''
     def __init__(self):
-        self.screen_width = 450
+        self.screen_width = 850
         self.screen_heght = 600
         self.bg_color = (230, 230, 230)
         self.ship_speed_factor = 5.3 # 移动步长
@@ -16,8 +16,8 @@ class Settings():
 
         # 外星人设置
         ## 外星人移动速度
-        self.alien_speed_factor = 5
-        self.fleet_drop_speed = 30
+        self.alien_speed_factor = 1
+        self.fleet_drop_speed = 5
         self.fleet_direction = 1 # 1表示向右移，为-1表示向左移
 
         # 玩家飞船熟练
